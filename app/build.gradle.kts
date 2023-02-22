@@ -8,12 +8,19 @@ kotlin {
     macosArm64 {
         binaries.executable()
     }
+    jvm()
     sourceSets {
-        getByName("commonMain") {
-            kotlin.srcDirs("src/common/main/kotlin")
-        }
-        getByName("macosArm64Main") {
-            kotlin.srcDirs("src/macos/arm64/main/kotlin")
+        "main".also { sourceSet ->
+            val capitalized = sourceSet.capitalize()
+            getByName("common$capitalized") {
+                kotlin.srcDirs("src/common/$sourceSet/kotlin")
+            }
+            getByName("macosArm64$capitalized") {
+                kotlin.srcDirs("src/macos/arm64/$sourceSet/kotlin")
+            }
+            getByName("jvm$capitalized") {
+                kotlin.srcDirs("src/jvm/$sourceSet/kotlin")
+            }
         }
     }
 }
