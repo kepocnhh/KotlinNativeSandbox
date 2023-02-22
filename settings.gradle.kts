@@ -1,3 +1,3 @@
 rootProject.name = "KotlinNativeSandbox"
 
-include("app")
+include("app", "common")
