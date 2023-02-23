@@ -1,10 +1,8 @@
-import kt.native.sandbox.Foo
 import kt.native.sandbox.getCurrentTime
 import platform.Foundation.*
 
 fun main() {
-    val foo = Foo(bar = "native")
-    println("Hello ${foo.bar}!")
+    println("Hello macos native!")
     val dateFormatter = NSDateFormatter.new()!!
     dateFormatter.dateStyle = NSDateFormatterFullStyle
     dateFormatter.timeStyle = NSDateFormatterFullStyle
